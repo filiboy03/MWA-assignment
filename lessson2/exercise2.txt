@@ -1,0 +1,23 @@
+Exercise#2
+1.
+SetTimeOut - This type of function will be called after set time but it follows event loop. And event loop does not guarantee that it will work after the given seconds. In fact it only guarantees that function will be called after completing set time. But, function can be called any time after completing time when node event queue is free to take up callback function.
+
+SetImmediate - This will get called as and when it goes to stack and does not follow cycle of callback in event loop.
+
+setImmediate is faster than setTimeout, because of that setTimeout is calling the function after delay has finished. Whenever a function is called it is not executed immediately, but it is queued to the callback queue so that it is executed after all the executing and currently queued event handlers finish first. But, setImmediate checks queue of I/O event handlers. If all I/O events in the current snapshot are processed, it executes the callback. It queues them immediately after the last I/O handler.
+
+2.
+SetImmediate callbacks are fired off the event loop, once per iteration in the order that they were queued. For example on the first iteration of the event loop, callback A is fired. Then on the second iteration of the event loop, callback B is fired, then on the third iteration of the event loop callback C is fired, etc. This prevents the event loop from being blocked and allows other I/O or timer callbacks to be called in the mean time.
+NextTick callbacks, however, are always fired immediately after the current code is done executing and BEFORE going back to the event loop. 
+3.
+	require
+	setTimeout
+	os
+	Module
+	escape
+	dns
+	setInterval
+	buffer
+	process
+	v8
+
